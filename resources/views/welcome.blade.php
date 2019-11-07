@@ -1,6 +1,14 @@
+<?php
+    if (!empty(session()->get('user_id')))
+    {
+        
+?>
+
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+            
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -62,8 +70,13 @@
                 margin-bottom: 30px;
             }
         </style>
+        
     </head>
+
+    
     <body>
+
+            
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,7 +94,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel <?php echo session()->get('user_id'); ?>
                 </div>
 
                 <div class="links">
@@ -98,3 +111,12 @@
         </div>
     </body>
 </html>
+
+
+<?php 
+    }
+    else
+    {  
+        header("Location: http://127.0.0.1:8000/signup");exit;
+    }
+?>

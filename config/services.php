@@ -30,4 +30,38 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Social Linkes Configrations
+    |--------------------------------------------------------------------------
+    |   Facebook, Google Account, Github, LinkedIn and etc Login Integration 
+    |   and Configration
+    | 
+    */
+    'facebook' => [
+        'client_id'     => '558769188214275',
+        'client_secret' => '8f65a67053c482b398f077d7348bb043',
+        'redirect'      => 'http://localhost:8000/login/facebook/callback',
+    ],
+
+    'twitter' => [
+            'client_id'     => env('TWITTER_CLIENT_ID'),
+            'client_secret' => env('TWITTER_CLIENT_SECRET'),
+            'redirect'      => env('TWITTER_URL'),
+    ],
+
+    'github' => [
+        'client_id'     => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect'      => env('GITHUB_URL'),
+    ],
+    
+    'google' => [
+        'client_id'     => '965629471819-8fe2miipo8ou4dnp41h960a1tohc6sui.apps.googleusercontent.com',
+        'client_secret' => 'nOirFxENg0xRhYEY2LCtJO2O',
+        'redirect'      => 'http://127.0.0.1:8000/login/google/callback',
+    ],
+
 ];
+
