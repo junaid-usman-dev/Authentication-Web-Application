@@ -20,6 +20,7 @@ class CreateStartRankTable extends Migration
             $table->string('description')->nullable();
             $table->string('picture')->nullable();
             $table->integer('like')->nullable();
+            $table->integer('star')->nullable();
             $table->integer('dislike')->nullable();
 
             $table->timestamps();

@@ -21,7 +21,8 @@ class CreatePostTable extends Migration
             $table->integer('like')->nullable();
             $table->integer('dislike')->nullable();
             $table->integer('view')->nullable();
-            $table->string('comment')->nullable();
+            $table->integer('comment')->nullable();
+            $table->integer('star')->nullable();
             $table->string('picture')->nullable();
 
             $table->timestamps();

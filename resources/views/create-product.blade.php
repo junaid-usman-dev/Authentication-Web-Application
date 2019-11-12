@@ -16,32 +16,32 @@
             @csrf
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" id="title" class="title" name="title" placeholder="Product Title"  >
+                <input type="text" id="title" class="form-control" name="title" placeholder="Product Title"  >
             </div>
             
             <div class="form-group">
                 <label for="short-description">Short Description:</label>
-                <input type="text" id="short-description" class="short-description" name="short-description" placeholder="Short Description" >
+                <input type="text" id="short-description" class="form-control" name="short-description" placeholder="Short Description" >
             </div>
             
             <div class="form-group">
                 <label for="long-description">Long Description:</label>
-                <input type="text" id="long-description" class="long-description" name="long-description" placeholder="Long Description" >
+                <input type="text" id="long-description" class="form-control" name="long-description" placeholder="Long Description" >
             </div>
             
             <div class="form-group">
                 <label for="category">Category:</label>
-                <input type="text" id="category" class="category" name="category" placeholder="Category" >
+                <input type="text" id="category" class="form-control" name="category" placeholder="Category" >
             </div>
 
             <div class="form-group">
                 <label for="squ">SQU:</label>
-                <input type="text" id="squ" class="squ" name="squ" placeholder="SQU" >
+                <input type="text" id="squ" class="form-control" name="squ" placeholder="SQU" >
             </div>
 
             <div class="form-group">
                 <label for="type">Type:</label>
-                <select name="type" id="type" class="type">
+                <select name="type" id="type" class="form-control">
                     <option value="variable">Variable</option>
                     <option value="feature">Feature</option>
                     <option value="sale">Sale</option>
@@ -52,32 +52,32 @@
 
             <div class="form-group">
                 <label for="price">Price:</label>
-                <input type="text" id="price" class="price" name="price" placeholder="Price" >
+                <input type="text" id="price" class="form-control" name="price" placeholder="Price" >
             </div>
 
             <div class="form-group">
                 <label for="sale-price">Sale Price:</label>
-                <input type="text" id="sale-price" class="sale-price" name="sale-price" placeholder="Sale Price" >
+                <input type="text" id="sale-price" class="form-control" name="sale-price" placeholder="Sale Price" >
             </div>
 
             <div class="form-group">
                 <label for="discount-percentage">Discount Percentage:</label>
-                <input type="text" id="discount-percentage" class="discount-percentage" name="discount-percentage" placeholder="Discount Percentage" >
+                <input type="text" id="discount-percentage" class="form-control" name="discount-percentage" placeholder="Discount Percentage" >
             </div>
 
             <div class="form-group">
                 <label for="brand">Brand:</label>
-                <input type="text" id="brand" class="brand" name="brand" placeholder="Brand" >
+                <input type="text" id="brand" class="form-control" name="brand" placeholder="Brand" >
             </div>
 
             <div class="form-group">
                 <label for="picture">Picture:</label>
-                <input type="file" id="picture" class="picture" name="picture" placeholder="Picture" >
+                <input type="file" id="picture" class="form-control" name="picture" placeholder="Picture" >
             </div>
 
             <div class="form-group">
                 <label for="picture">Available:</label>
-                <input type="text" id="available" class="available" name="available" placeholder="1 or 0" >
+                <input type="text" id="available" class="form-control" name="available" placeholder="1 or 0" >
             </div>
 
             <div class="checkbox">

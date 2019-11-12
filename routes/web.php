@@ -128,33 +128,55 @@ Route::get('/for-you', function () {
 */
 
 // ----------- Star Ranking  ----------
-
-route::get('/create-startrank', 'StartRank\StartRankController@create');
+route::get('/create-startrank', 'StartRank\StartRankController@create');  // make new start rank
 route::post('/store-startrank', 'StartRank\StartRankController@store');
-route::get('/edit-startrank/{id}', 'StartRank\StartRankController@edit');
+route::get('/edit-startrank/{id}', 'StartRank\StartRankController@edit'); // edit existing start rank
 route::post('/update-startrank', 'StartRank\StartRankController@update');
+route::get('/detele-startrank/{id}', 'StartRank\StartRankController@destroy'); // Delete existing start rank
+
+//------- This Month Start Rank -------
+route::get('/start-ranking', 'StartRank\StartRankController@ThisMonth'); // Display this month start rank
+//------- This Week Start Rank --------
+route::get('/this-week', 'StartRank\StartRankController@ThisWeek'); // Display this week start rank
+//------- View All Start Rank ---------
+route::get('/all-start-rank', 'StartRank\StartRankController@index'); // Display all start rank
 
 
-route::get('/start-ranking', 'StartRank\StartRankController@ThisMonth');
-route::get('/this-week', 'StartRank\StartRankController@ThisWeek');
-
-route::get('/detele-startrank/{id}', 'StartRank\StartRankController@destroy');
 
 
+/*
+|--------------------------------------------------------------------------
+| Community Post URL
+|--------------------------------------------------------------------------
+*/
+
+// ----------- Community Post  ----------
+// Route::get('/community-all-posts', function () {
+//     return view('/c2c/community-all-posts');
+// });
+
+route::get('/community-all-posts','Post\PostController@index');
+
+
+route::get('/create-post', 'Post\PostController@create');  // make new start rank
+route::post('/store-post', 'Post\PostController@store');
+// route::get('/edit-startrank/{id}', 'StartRank\StartRankController@edit'); // edit existing start rank
+// route::post('/update-startrank', 'StartRank\StartRankController@update');
+// route::get('/detele-startrank/{id}', 'StartRank\StartRankController@destroy'); // Delete existing start rank
 
 
 // Route::get('/start-ranking', function () {
 //     return view('/c2c/start-ranking');
 // });
-Route::get('/ranking', function () {
-    return view('/c2c/ranking');
-});
-Route::get('/ranking-1', function () {
-    return view('/c2c/ranking-1');
-});
-Route::get('/ranking-2', function () {
-    return view('/c2c/ranking-2');
-});
+// Route::get('/ranking', function () {
+//     return view('/c2c/ranking');
+// });
+// Route::get('/ranking-1', function () {
+//     return view('/c2c/ranking-1');
+// });
+// Route::get('/ranking-2', function () {
+//     return view('/c2c/ranking-2');
+// });
 
 // Create Post
 Route::get('/create-a-post', function () {
@@ -169,9 +191,7 @@ Route::get('/community-single-post', function () {
     return view('/c2c/community-single-post');
 });
 // Community all post
-Route::get('/community-all-posts', function () {
-    return view('/c2c/community-all-posts');
-});
+
 // profile looks
 Route::get('/profile-looks', function () {
     return view('/c2c/profile-looks');

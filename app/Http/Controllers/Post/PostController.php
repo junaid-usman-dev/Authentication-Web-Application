@@ -16,6 +16,8 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+        return view('/c2c/community-all-posts')->with(['posts'=>$posts]);
     }
 
     /**
@@ -26,6 +28,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('post/create-post');
     }
 
     /**
@@ -37,6 +40,42 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'username' => 'required',
+            'description' => 'required',
+            'like' => 'required',
+            'dislike' => 'required',
+            'view' => 'required',
+            'comment' => 'required',
+            'star' => 'required',
+            'picture' => 'required',
+        ]);
+        $username = $request->input('username');
+        $description = $request->input('description'); 
+        $like = $request->input('like'); 
+        $dislike = $request->input('dislike'); 
+        $view = $request->input('view'); 
+        $comment = $request->input('comment'); 
+        $star = $request->input('star'); 
+        $picture = $request->file('picture'); 
+
+        $post = new Post();
+
+        $post->username = $username;
+        $post->description = $description;
+        $post->like = $like;
+        $post->dislike = $dislike;
+        $post->view = $view;
+        $post->comment = $comment;
+        $post->star = $star;
+
+        $file_name = $picture->getClientOriginalName($picture);
+        $file_path = $picture->move('storage/post',$file_name);
+        $post->picture = $file_path;
+
+        $post->save();
+
+        return redirect('community-all-posts');
     }
 
     /**

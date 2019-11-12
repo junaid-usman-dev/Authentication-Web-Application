@@ -17,10 +17,14 @@ class StartRankController extends Controller
     public function index()
     {
         //
-        $thisMonth = date("m");
-        $thisMonthStartRanks = StartRank::whereMonth('updated_at', $thisMonth)->get();
-        
-        return view ('c2c/start-ranking')->with('thisMonthStartRanks',$thisMonthStartRanks);
+        $allStartRanks = StartRank::orderBy('star','DESC')->get();
+        // $allStartRanks = StartRank::orderBy('created_at', 'ASC')->get();
+        // $allStartRanks = StartRank::orderBy('star','DESC')->orderBy('like','DESC')->groupBy('created_at')->get();
+        // $allStartRanks = StartRank::all()->sortBy('created_at')->get();
+            
+        // dd($allStartRanks->pluck('created_at'));
+        // $allStartRanks = $allStartRanks->created_at()->format('F')->get();
+        return view ('c2c/all-start-ranking')->with('allStartRanks',$allStartRanks);
     }
 
     /**
@@ -50,6 +54,7 @@ class StartRankController extends Controller
             'dislike' => 'nullable',
             // 'picture' => 'image|mimes:jpeg,png,jpg|max:2048'
             'picture' => 'nullable',
+            'star' => 'nullable',
         ]);
 
         $username = $request->input('username');
@@ -57,6 +62,7 @@ class StartRankController extends Controller
         $like = $request->input('like');
         $dislike = $request->input('dislike');
         $picture = $request->file('picture');
+        $star = $request->input('star');
 
         $starrank = new StartRank();
         
@@ -68,6 +74,8 @@ class StartRankController extends Controller
         $file_name = $picture->getClientOriginalName();
         $file_path = $picture->move('storage/startrank',$file_name);
         $starrank->picture = $file_path;
+
+        $starrank->star = $star;            
 
         $starrank->save();
 
@@ -169,8 +177,7 @@ class StartRankController extends Controller
     {
         //
         $thisWeekStartRanks = StartRank::whereBetween('updated_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        dd($thisWeekStartRanks->pluck('updated_at'));
-        // return view ('c2c/start-ranking')->with('thisMonthStartRanks',$thisMonthStartRanks);
+        return view ('c2c/week-start-ranking')->with('thisWeekStartRanks',$thisWeekStartRanks);
     }
 
     /**
@@ -183,9 +190,10 @@ class StartRankController extends Controller
     {
         //
         $thisMonth = date("m");
-        $thisMonthStartRanks = StartRank::whereMonth('updated_at', $thisMonth)->get();
-        // $starranks = StarRank::all();
-        // dd($thisMonthStartRank);
+        // $thisMonthStartRanks = StartRank::whereMonth('updated_at', $thisMonth)->orderBy('star','DESC')->orderBy('like', 'DESC')->get();
+        $thisMonthStartRanks = StartRank::orderBy('star','DESC')->orderBy('updated_at', 'ASC')->get();
+        // dd($thisMonthStartRanks->pluck('updated_at'));
+        // $thisMonthStartRanks = StartRank::orderBy('star','DESC')->orderBy('like', 'DESC')->get();
         return view ('c2c/start-ranking')->with('thisMonthStartRanks',$thisMonthStartRanks);
     }
 }

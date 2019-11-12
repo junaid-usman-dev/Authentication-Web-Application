@@ -123,7 +123,7 @@
                 error = false;
                 console.log ("Ajax Calling !!!!");
                 jQuery.ajax({
-                    url: "/home",
+                    url: "{{ url('home') }}",
                     type: "POST",
                     data: {'username':user, 'password':pass },
                     success: function(response)

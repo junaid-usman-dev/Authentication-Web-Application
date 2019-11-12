@@ -204,8 +204,8 @@ jQuery(document).ready(function(){
 
 		if ( email_flag == true && pass_flag == true && username_flag == true )
 		{
-			// Ajax Calling
-			console.log ("Ajax Calling!!!");
+			// Ajax Signup Calling
+			console.log ("Ajax Signup Calling!!!");
 			jQuery.ajax({
 				url: "/store",
 				type: "POST",
@@ -272,7 +272,7 @@ jQuery(document).ready(function(){
 		if(user != '' && pass != '')
 		{
 			error = false;
-			console.log ("Ajax Calling !!!!");
+			console.log ("Ajax Signin Calling !!!!");
 			jQuery.ajax({
 				url: "/home",
 				type: "POST",
